@@ -13,12 +13,19 @@ var http = require('http');
 // Equity Growth
 const url = 'http://api.morningstar.com/service/mf/Price/Mstarid/F00000NNHK?callback=?&format=json&username=morningstar&password=ForDebug&startdate=2008-01-01&enddate=2099-01-01'
 
+let log = value => { return value; }
 
-http.get(url, (response) => {
+function getEquityGrowthData(callback) {
+  return http.get(url, (response) => {
     let body = '';
-    response.on('data', (data) => { body += data; });
-    response.on('end', ()=> {
-        body = body.substring(2, body.length - 1);
-        let prices = JSON.parse(body).data.Prices;
+    response.on('data', data => { body += data; });
+    response.on('end', () => {
+      body = body.substring(2, body.length - 1);
+      const parsedData = JSON.parse(body).data.Prices;
+      callback(parsedData);
     });
-});
+  });
+}
+
+
+getEquityGrowthData(log);
