@@ -30,7 +30,7 @@ function buildChart(data) {
                 xAxes: [{
                     type: 'time',
                     time: {
-                        unit: 'month'
+                        unit: 'year'
                     },
                     distribution: 'series',
                     bounds: 'data'
