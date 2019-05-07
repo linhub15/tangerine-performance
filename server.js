@@ -4,7 +4,7 @@ var express = require('express'),
   port = process.env.PORT || 3000;
 
 app.listen(port);
-console.log('Tangerine Performance graph RESTful API server started on: ' + port);
+console.log('Tangerine Performance graph RESTful API server listening on port:' + port);
 
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
