@@ -3,7 +3,15 @@
 * start the express API `npm run start` - will call nodemon to run the server
 * start webpage `npx http-server ./site`
 
-## Notes
-Equity growth mstarid = F00000NNHK
+## Morning star mutual fund ids
+```
+income:     F000000S66
+balanced:   F000000S68
+growth:     F000000S6A
+dividend:   F00000Y1ZY
+equity:     F00000NNHK  <-- This is the one I care about
+```
 
-https://api.morningstar.com/service/mf/Price/Mstarid/F00000NNHK?callback=jQuery112405649102054153521_1575254671824&format=json&startdate=2008-01-01&enddate=2099-01-01&accesscode=j0vobmz6hyhf6nciuskoedmyj27nnl3i
+## Links
+https://www.tangerine.ca/en/products/investing/performance/
+https://www.tangerine.ca/json/investment-funds-performance.json

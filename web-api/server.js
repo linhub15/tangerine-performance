@@ -1,4 +1,4 @@
-// Setup Server
+'use strict'
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
@@ -14,7 +14,7 @@ app.use(function(req, res, next) {
 })
 
 // Bind Routes
-const data = require('./dataController');
+const data = require('./data-controller.js');
 
 // End points
 app.get('/data', (req, res) => {
