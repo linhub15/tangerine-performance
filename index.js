@@ -11,21 +11,4 @@ var http = require('http');
         var equitySrc = morningstar + '/Mstarid/F00000NNHK' + params
 */
 // Equity Growth
-const url = 'http://api.morningstar.com/service/mf/Price/Mstarid/F00000NNHK?callback=?&format=json&username=morningstar&password=ForDebug&startdate=2008-01-01&enddate=2099-01-01'
-
-let log = value => { return value; }
-
-function getEquityGrowthData(callback) {
-  return http.get(url, (response) => {
-    let body = '';
-    response.on('data', data => { body += data; });
-    response.on('end', () => {
-      body = body.substring(2, body.length - 1);
-      const parsedData = JSON.parse(body).data.Prices;
-      callback(parsedData);
-    });
-  });
-}
-
-
-getEquityGrowthData(log);
+const url = 'https://api.morningstar.com/service/mf/Price/Mstarid/F00000NNHK?callback=jQuery112405649102054153521_1575254671824&format=json&startdate=2008-01-01&enddate=2099-01-01&accesscode=j0vobmz6hyhf6nciuskoedmyj27nnl3i'

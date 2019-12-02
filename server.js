@@ -1,10 +1,11 @@
 // Setup Server
-var express = require('express'),
-  app = express(),
-  port = process.env.PORT || 3000;
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 3000;
 
-app.listen(port);
-console.log('Tangerine Performance graph RESTful API server started on: ' + port);
+app.listen(
+  port,
+  () => console.log(`Tangerine Performance graph RESTful API server started on: ${port}`));
 
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -13,6 +14,11 @@ app.use(function(req, res, next) {
 })
 
 // Bind Routes
-var data = require('./dataController');
-app.route('/data').get(data.list_all_data);
+const data = require('./dataController');
 
+// End points
+app.get('/data', (req, res) => {
+  data.list_all_data((results) => {
+    res.send(results);
+  })
+});
